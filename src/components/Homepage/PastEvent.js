@@ -23,20 +23,20 @@ const data = [
   },
 ];
 
-function EventList() {
+function PastEvent() {
   return (
-    <section className="my-5">
-      <h2 className="container text-2xl font-bold">Upcomming Events</h2>
-      <div className="space-y-4 mt-4">
-        {data.map((event, i) => (
-          <article key={i} className="odd:bg-[#F1F2F6] py-8">
-            <div className="container md:flex gap-12">
-              <img src={event.image} alt="" className="w-full md:max-w-sm" />
+    <section>
+      <h2 className="container text-2xl font-bold">Our past event</h2>
+
+      <div className="bg-[#F1F2F6] py-12 mt-4">
+        <div className="container flex flex-col md:flex-row gap-5">
+          {data.map((event, i) => (
+            <div key={i}>
+              <img src={event.image} alt="" />
 
               <div className="space-y-3 my-3">
                 <h3 className="text-2xl font-semibold">{event.title}</h3>
                 <p>{event.desc}</p>
-
                 <Link to="/event" className="inline-block mt-5 text-primary">
                   Learn More
                   <img
@@ -48,11 +48,11 @@ function EventList() {
                 </Link>
               </div>
             </div>
-          </article>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
-export default EventList;
+export default PastEvent;
