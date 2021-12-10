@@ -5,12 +5,12 @@ import Footer from "../components/Homepage/Footer";
 import Navigation from "../components/Homepage/Navigation";
 import PastEvent from "../components/Homepage/PastEvent";
 
-function Homepage() {
+function Homepage({events}) {
   return (
     <div className="">
       <Navigation />
       <Banner />
-      <EventList />
+      <EventList events={events} />
       <PastEvent />
       <Footer />
     </div>
