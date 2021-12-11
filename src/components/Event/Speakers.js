@@ -23,10 +23,10 @@ const data = [
 
 function Speakers() {
   return (
-    <div>
+    <section className="space-y-4">
       <h2 className="event__title">Speakers</h2>
 
-      <div className="flex flex-wrap justify-center gap-3">
+      <div className="flex flex-wrap gap-3">
         {data.map((data, i) => (
           <div key={i}>
             <img src={data.image} alt="" className="w-[200px]" />
@@ -35,7 +35,7 @@ function Speakers() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

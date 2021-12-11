@@ -29,7 +29,7 @@ const schedules = [
 
 function Schedule() {
   return (
-    <div>
+    <section className="space-y-4">
       <h2 className="event__title">Event Schedule</h2>
 
       <div className="space-y-5 first:mt-5">
@@ -44,7 +44,7 @@ function Schedule() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

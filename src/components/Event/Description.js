@@ -5,7 +5,7 @@ import Calendar from "../../images/calendar.svg";
 
 function Description() {
   return (
-    <div className="space-y-4">
+    <section className="space-y-4">
       <h2 className="event__title">Event Description</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus pretium
@@ -30,7 +30,14 @@ function Description() {
           9am prompt
         </li>
       </ul>
-    </div>
+
+      <a
+        href="#register"
+        className="block text-white text-center bg-primary p-4 w-full md:hidden"
+      >
+        Register
+      </a>
+    </section>
   );
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Airtable from "airtable";
 import { useParams } from "react-router-dom";
 import Banner from "../components/Event/Banner";
@@ -9,6 +9,8 @@ import { Helmet } from "react-helmet";
 import Schedule from "../components/Event/Schedule";
 import Footer from "../components/Footer";
 import Form from "../components/Event/Form";
+import Countdown from "../components/Event/Countdown";
+import Navigation from "../components/Navigation";
 
 const base = new Airtable({
   apiKey: process.env.REACT_APP_API_KEY,
@@ -16,6 +18,7 @@ const base = new Airtable({
 
 function Event() {
   const params = useParams();
+  const [event, setEvent] = useState([]);
 
   useEffect(() => {
     base("events").find(params.eventId, function (err, record) {
@@ -23,26 +26,31 @@ function Event() {
         console.error(err);
         return;
       }
-      console.log("Retrieved", record);
+      setEvent(record);
     });
   }, []);
+
+  const eventTitle = event?.fields?.title;
+  const bannerImage = event?.fields?.cover_image[0].url;
 
   return (
     <div className="relative">
       <Helmet>
-        <title>My Title</title>
+        <title>Faraday Event </title>
       </Helmet>
 
       <Sidebar />
+      <Navigation event />
 
-      <div className="ml-[48px]">
-        <Banner />
-        <div className="container md:grid [grid-template-columns:2fr_1fr]">
-          <di className="space-y-12">
+      <div className="md:ml-[48px]">
+        <Banner bannerImage={bannerImage} />
+        <div className="container md:grid [grid-template-columns:2fr_1fr] my-5">
+          <div className="space-y-12">
+            <Countdown eventTitle={eventTitle} />
             <Description />
             <Speakers />
             <Schedule />
-          </di>
+          </div>
           <Form />
         </div>
 

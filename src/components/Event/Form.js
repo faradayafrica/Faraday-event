@@ -2,7 +2,7 @@ import React from "react";
 
 function Form() {
   return (
-    <div className="bg-white p-5 shadow md:-mt-12">
+    <div className="bg-white p-5 shadow md:-mt-12" id="register">
       <h3 className="text-2xl font-semibold mb-4">Register for this event</h3>
       <form className="space-y-5">
         <input
