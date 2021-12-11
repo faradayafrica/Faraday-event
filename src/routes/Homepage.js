@@ -1,11 +1,11 @@
 import React from "react";
 import Banner from "../components/Homepage/Banner";
 import EventList from "../components/Homepage/EventList";
-import Footer from "../components/Homepage/Footer";
+import Footer from "../components/Footer";
 import Navigation from "../components/Homepage/Navigation";
 import PastEvent from "../components/Homepage/PastEvent";
 
-function Homepage({events}) {
+function Homepage({ events }) {
   return (
     <div className="">
       <Navigation />

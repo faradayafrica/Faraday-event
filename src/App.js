@@ -5,8 +5,8 @@ import Event from "./routes/Event";
 import Airtable from "airtable";
 import { useEffect, useState } from "react";
 
-var base = new Airtable({
-  apiKey: process.env.REACT_APP_API_KEY, // process.env.API_KEY,
+const base = new Airtable({
+  apiKey: process.env.REACT_APP_API_KEY,
 }).base(process.env.REACT_APP_BASE);
 
 function App() {
@@ -26,7 +26,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage events={events} />} />
-          <Route path="event" element={<Event />} />
+          <Route path="event" element={<Event />}>
+            <Route path=":eventId" element={<Event />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>

@@ -26,7 +26,9 @@ const data = [
 function PastEvent() {
   return (
     <section>
-      <h2 className="container text-2xl font-bold">Our past event</h2>
+      <h2 className="container text-xl md:text-2xl font-bold">
+        Our past event
+      </h2>
 
       <div className="bg-[#F1F2F6] py-12 mt-4">
         <div className="container flex flex-col md:flex-row gap-5">
@@ -35,9 +37,11 @@ function PastEvent() {
               <img src={event.image} alt="" />
 
               <div className="space-y-3 my-3">
-                <h3 className="text-2xl font-semibold">{event.title}</h3>
+                <h3 className="text-lg md:text-2xl font-semibold">
+                  {event.title}
+                </h3>
                 <p>{event.desc}</p>
-                <Link to="/event" className="inline-block mt-5 text-primary">
+                <Link to={`/event`} className="inline-block mt-5 text-primary">
                   Learn More
                   <img
                     src={Arrow}
