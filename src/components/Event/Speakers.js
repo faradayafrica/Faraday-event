@@ -23,14 +23,18 @@ const data = [
 
 function Speakers() {
   return (
-    <div className="container flex flex-wrap">
-      {data.map((data, i) => (
-        <div key={i}>
-          <img src={data.image} alt="" className="w-[200px]" />
-          <h4>{data.title}</h4>
-          <p>{data.desc}</p>
-        </div>
-      ))}
+    <div>
+      <h2 className="event__title">Speakers</h2>
+
+      <div className="flex flex-wrap justify-center gap-3">
+        {data.map((data, i) => (
+          <div key={i}>
+            <img src={data.image} alt="" className="w-[200px]" />
+            <h4 className="text-center">{data.title}</h4>
+            <p className="text-center">{data.desc}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

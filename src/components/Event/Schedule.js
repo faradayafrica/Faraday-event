@@ -1,5 +1,5 @@
 import React from "react";
-
+import Clock from "../../images/clock.svg";
 const schedules = [
   {
     topic: "Event Topic",
@@ -29,12 +29,21 @@ const schedules = [
 
 function Schedule() {
   return (
-    <div className="container">
-      {schedules.map((schedule, i) => (
-        <div key={i}>
-          <span>{schedule.time}</span>
-        </div>
-      ))}
+    <div>
+      <h2 className="event__title">Event Schedule</h2>
+
+      <div className="space-y-5 first:mt-5">
+        {schedules.map((schedule, i) => (
+          <div key={i}>
+            <span className="flex gap-3">
+              <img src={Clock} alt="" /> {schedule.time}
+            </span>
+
+            <h3>{schedule.topic}</h3>
+            <p>{schedule.desc}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

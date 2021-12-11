@@ -23,31 +23,7 @@ const data = [
   },
 ];
 
-// {events && events.map((event, i) => (
-//       <article key={i} className="odd:bg-[#F1F2F6] py-8">
-//         <div className="container md:flex gap-12">
-//           <img src={event.image} alt="" className="w-full md:max-w-sm" />
-
-//           <div className="space-y-3 my-3">
-//             <h3 className="text-2xl font-semibold">{event.title}</h3>
-//             <p>{event.desc}</p>
-
-//             <Link to="/event" className="inline-block mt-5 text-primary">
-//               Learn More
-//               <img
-//                 src={Arrow}
-//                 alt="arrow"
-//                 aria-hidden="true"
-//                 className="inline ml-5"
-//               />
-//             </Link>
-//           </div>
-//         </div>
-//       </article>
-//     ))}
-
 function EventList({ events }) {
-  console.log(events);
   return (
     <section className="my-5">
       <h2 className="container text-xl md:text-2xl font-bold">

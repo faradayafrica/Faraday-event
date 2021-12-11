@@ -1,9 +1,12 @@
 import React from "react";
+import Location from "../../images/location.svg";
+import Clock from "../../images/clock.svg";
+import Calendar from "../../images/calendar.svg";
 
 function Description() {
   return (
-    <div className="container">
-      <h2>Event Description</h2>
+    <div className="space-y-4">
+      <h2 className="event__title">Event Description</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus pretium
         integer imperdiet nulla lorem ornare. Sit cursus tincidunt est justo.
@@ -13,10 +16,19 @@ function Description() {
         sollicitudin urna.
       </p>
 
-      <ul>
-        <li>PDTF Auditorium, Engineering faculty Unizik</li>
-        <li>8th January, 2021</li>
-        <li>9am prompt</li>
+      <ul className="space-y-5">
+        <li className="flex">
+          <img src={Location} alt="" className="mr-4" /> PDTF Auditorium,
+          Engineering faculty Unizik
+        </li>
+        <li className="flex">
+          <img src={Calendar} alt="" className="mr-4" />
+          8th January, 2021
+        </li>
+        <li className="flex">
+          <img src={Clock} alt="" className="mr-4" />
+          9am prompt
+        </li>
       </ul>
     </div>
   );

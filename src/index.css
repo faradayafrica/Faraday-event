@@ -9,6 +9,10 @@ body {
 }
 
 @layer utilities {
+  .event__title {
+    @apply text-xl md:text-2xl font-bold;
+  }
+
   .container {
     width: 90%;
     margin: 0 auto;

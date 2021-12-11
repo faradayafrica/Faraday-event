@@ -8,6 +8,7 @@ import Speakers from "../components/Event/Speakers";
 import { Helmet } from "react-helmet";
 import Schedule from "../components/Event/Schedule";
 import Footer from "../components/Footer";
+import Form from "../components/Event/Form";
 
 const base = new Airtable({
   apiKey: process.env.REACT_APP_API_KEY,
@@ -36,9 +37,15 @@ function Event() {
 
       <div className="ml-[48px]">
         <Banner />
-        <Description />
-        <Speakers />
-        <Schedule />
+        <div className="container md:grid [grid-template-columns:2fr_1fr]">
+          <di className="space-y-12">
+            <Description />
+            <Speakers />
+            <Schedule />
+          </di>
+          <Form />
+        </div>
+
         <Footer />
       </div>
     </div>
