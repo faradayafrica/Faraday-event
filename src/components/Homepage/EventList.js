@@ -27,7 +27,7 @@ function EventList({ events }) {
   return (
     <section className="my-5">
       <h2 className="container text-xl md:text-2xl font-bold">
-        Upcomming Events
+        Upcoming Events
       </h2>
       <div className="space-y-4 mt-4">
         {events.length === 0
@@ -56,8 +56,8 @@ function EventList({ events }) {
                 <div className="container md:flex gap-12">
                   <img
                     src={event?.fields?.cover_image[0].url}
-                    alt=""
-                    className="w-full md:w-[350px] md:bg-cover"
+                    alt={event?.fields?.title}
+                    className="block w-full md:w-[300px] bg-cover object-cover"
                   />
 
                   <div className="space-y-3 my-3">

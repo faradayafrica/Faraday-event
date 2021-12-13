@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import base from "../../util";
 
 const data = [
   {
@@ -22,6 +23,28 @@ const data = [
 ];
 
 function Speakers() {
+  const [speakers, setSpeakers] = useState([]);
+
+  useEffect(() => {
+    base("event_speaker")
+      .select({ view: "Grid view" })
+      .eachPage((records, fetchNextPage) => {
+        // console.log(records);
+        records.map((record) =>
+          setSpeakers([
+            {
+              id: record.id,
+              ...record.fields,
+            },
+          ])
+        );
+        fetchNextPage();
+      });
+  }, []);
+
+  useEffect(() => {
+    console.log(speakers);
+  }, [speakers]);
   return (
     <section className="space-y-4">
       <h2 className="event__title">Speakers</h2>

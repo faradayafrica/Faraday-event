@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Airtable from "airtable";
 import { useParams } from "react-router-dom";
 import Banner from "../components/Event/Banner";
 import Sidebar from "../components/Event/Sidebar";
@@ -11,10 +10,7 @@ import Footer from "../components/Footer";
 import Form from "../components/Event/Form";
 import Countdown from "../components/Event/Countdown";
 import Navigation from "../components/Navigation";
-
-const base = new Airtable({
-  apiKey: process.env.REACT_APP_API_KEY,
-}).base(process.env.REACT_APP_BASE);
+import base from "../util";
 
 function Event() {
   const params = useParams();
@@ -44,7 +40,7 @@ function Event() {
 
       <div className="md:ml-[48px]">
         <Banner bannerImage={bannerImage} />
-        <div className="container md:grid [grid-template-columns:2fr_1fr] my-5">
+        <div className="container md:grid gap-8 [grid-template-columns:1fr_1fr] my-5">
           <div className="space-y-12">
             <Countdown eventTitle={eventTitle} />
             <Description />
