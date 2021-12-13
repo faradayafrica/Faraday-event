@@ -28,6 +28,7 @@ function Event() {
 
   const eventTitle = event?.fields?.title;
   const bannerImage = event?.fields?.cover_image[0].url;
+  const eventId = event?.id;
 
   return (
     <div className="relative">
@@ -47,7 +48,7 @@ function Event() {
             <Speakers />
             <Schedule />
           </div>
-          <Form />
+          <Form eventId={eventId} />
         </div>
 
         <Footer />

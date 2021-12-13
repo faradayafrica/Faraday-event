@@ -10,6 +10,7 @@ SwiperCore.use([Navigation]);
 
 import "swiper/css";
 import "swiper/css/pagination";
+import SkeletonLoader from "../SkeletonLoader";
 
 const data = [
   {
@@ -53,36 +54,40 @@ function PastEvent({ events }) {
               },
             }}
           >
-            {events.map((event, i) => (
-              <SwiperSlide key={i}>
-                <article>
-                  <img
-                    src={event?.fields?.cover_image[0].url}
-                    alt={event?.fields?.title}
-                    className="w-full h-[300px] object-cover"
-                  />
+            {events.length === 0 ? (
+              <SkeletonLoader vtl />
+            ) : (
+              events.map((event, i) => (
+                <SwiperSlide key={i}>
+                  <article>
+                    <img
+                      src={event?.fields?.cover_image[0].url}
+                      alt={event?.fields?.title}
+                      className="w-full h-[300px] object-cover"
+                    />
 
-                  <div className="space-y-3 my-3">
-                    <h3 className="text-lg md:text-2xl font-semibold">
-                      {event?.fields?.title}
-                    </h3>
-                    <p>{event?.fields?.description}</p>
-                    <Link
-                      to={`/event/${event?.id}`}
-                      className="inline-block mt-5 text-primary"
-                    >
-                      Learn More
-                      <img
-                        src={Arrow}
-                        alt="arrow"
-                        aria-hidden="true"
-                        className="inline ml-5"
-                      />
-                    </Link>
-                  </div>
-                </article>
-              </SwiperSlide>
-            ))}
+                    <div className="space-y-3 my-3">
+                      <h3 className="text-lg md:text-2xl font-semibold">
+                        {event?.fields?.title}
+                      </h3>
+                      <p>{event?.fields?.description}</p>
+                      <Link
+                        to={`/event/${event?.id}`}
+                        className="inline-block mt-5 text-primary"
+                      >
+                        Learn More
+                        <img
+                          src={Arrow}
+                          alt="arrow"
+                          aria-hidden="true"
+                          className="inline ml-5"
+                        />
+                      </Link>
+                    </div>
+                  </article>
+                </SwiperSlide>
+              ))
+            )}
           </Swiper>
         </div>
       </div>

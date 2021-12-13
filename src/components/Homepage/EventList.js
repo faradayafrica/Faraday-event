@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Arrow from "../../images/arrow.svg";
+import SkeletonLoader from "../SkeletonLoader";
 
 const data = [
   {
@@ -30,58 +31,41 @@ function EventList({ events }) {
         Upcoming Events
       </h2>
       <div className="space-y-4 mt-4">
-        {events.length === 0
-          ? Array(4)
-              .fill()
-              .map((data, i) => (
-                <div key={i} className="animate-pulse odd:bg-[#F1F2F6] py-8">
-                  <div className="container md:flex gap-12">
-                    <div className="w-full md:w-[400px] h-[200px] bg-gray-300"></div>
+        {events.length === 0 ? (
+          <SkeletonLoader />
+        ) : (
+          events?.map((event, i) => (
+            <article key={i} className="odd:bg-[#F1F2F6] py-8">
+              <div className="container md:flex gap-12">
+                <img
+                  src={event?.fields?.cover_image[0].url}
+                  alt={event?.fields?.title}
+                  className="block w-full md:w-[300px] bg-cover object-cover"
+                />
 
-                    <div className="animate-pulse space-y-3 my-3 w-full">
-                      <div className="w-[60%] h-[10px] bg-[#0000003d] rounded"></div>
-                      <div className="w-[70%] h-[10px] bg-[#0000003d] rounded mt-3"></div>
-                      <div className="w-full h-[10px] bg-[#0000003d] rounded"></div>
-                      <div className="w-full h-[10px] bg-[#0000005d] rounded"></div>
-                      <div className="w-full h-[10px] bg-[#0000005d] rounded"></div>
-                      <div className="w-full h-[10px] bg-[#0000005d] rounded"></div>
-                      <div className="w-full h-[10px] bg-[#0000005d] rounded"></div>
-                      <div className="w-[50%] h-[10px] bg-[#0000005d] rounded"></div>
-                    </div>
-                  </div>
+                <div className="space-y-3 my-3">
+                  <h3 className="text-lg md:text-2xl font-semibold">
+                    {event?.fields?.title}
+                  </h3>
+                  <p>{event?.fields?.description}</p>
+
+                  <Link
+                    to={`/event/${event?.id}`}
+                    className="inline-block mt-5 text-primary"
+                  >
+                    Learn More
+                    <img
+                      src={Arrow}
+                      alt="arrow"
+                      aria-hidden="true"
+                      className="inline ml-5"
+                    />
+                  </Link>
                 </div>
-              ))
-          : events?.map((event, i) => (
-              <article key={i} className="odd:bg-[#F1F2F6] py-8">
-                <div className="container md:flex gap-12">
-                  <img
-                    src={event?.fields?.cover_image[0].url}
-                    alt={event?.fields?.title}
-                    className="block w-full md:w-[300px] bg-cover object-cover"
-                  />
-
-                  <div className="space-y-3 my-3">
-                    <h3 className="text-lg md:text-2xl font-semibold">
-                      {event?.fields?.title}
-                    </h3>
-                    <p>{event?.fields?.description}</p>
-
-                    <Link
-                      to={`/event/${event?.id}`}
-                      className="inline-block mt-5 text-primary"
-                    >
-                      Learn More
-                      <img
-                        src={Arrow}
-                        alt="arrow"
-                        aria-hidden="true"
-                        className="inline ml-5"
-                      />
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            ))}
+              </div>
+            </article>
+          ))
+        )}
       </div>
     </section>
   );
