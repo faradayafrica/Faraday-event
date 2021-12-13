@@ -1,8 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply font-poppins;
+}
+
 @layer utilities {
+  .event__title {
+    @apply text-xl md:text-2xl font-bold;
+  }
+
   .container {
     width: 90%;
     margin: 0 auto;

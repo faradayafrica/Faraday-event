@@ -1,14 +1,18 @@
 import React from "react";
 import Banner from "../components/Homepage/Banner";
 import EventList from "../components/Homepage/EventList";
-import Navigation from "../components/Homepage/Navigation";
+import Footer from "../components/Footer";
+import Navigation from "../components/Navigation";
+import PastEvent from "../components/Homepage/PastEvent";
 
-function Homepage() {
+function Homepage({ events }) {
   return (
-    <div className="container">
+    <div className="">
       <Navigation />
       <Banner />
-      <EventList />
+      <EventList events={events} />
+      <PastEvent />
+      <Footer />
     </div>
   );
 }
