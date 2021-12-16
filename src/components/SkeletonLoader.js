@@ -1,9 +1,9 @@
 import React from "react";
 
-function SkeletonLoader({ vtl }) {
+function SkeletonLoader({ upComingEvent, pastEvent, speakers }) {
   return (
-    <div>
-      {vtl ? (
+    <>
+      {pastEvent && (
         <div className="grid md:grid-cols-3 gap-3">
           {Array(3)
             .fill()
@@ -26,7 +26,9 @@ function SkeletonLoader({ vtl }) {
               </div>
             ))}
         </div>
-      ) : (
+      )}
+
+      {upComingEvent &&
         Array(4)
           .fill()
           .map((_, i) => (
@@ -46,9 +48,19 @@ function SkeletonLoader({ vtl }) {
                 </div>
               </div>
             </div>
-          ))
-      )}
-    </div>
+          ))}
+
+      {speakers &&
+        Array(2)
+          .fill()
+          .map((_, i) => (
+            <div key={i} className="animate-pulse space-y-2">
+              <div className="w-[150px] h-[150px] bg-[#0000003d] rounded"></div>
+              <div className="w-full h-[10px] bg-[#0000005d] rounded"></div>
+              <div className="w-[60%] h-[10px] bg-[#0000005d] rounded"></div>
+            </div>
+          ))}
+    </>
   );
 }
 

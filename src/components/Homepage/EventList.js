@@ -33,7 +33,7 @@ function EventList({ events }) {
       </h2>
       <div className="space-y-4 mt-4">
         {events.length === 0 ? (
-          <SkeletonLoader />
+          <SkeletonLoader upComingEvent />
         ) : (
           events?.map((event, i) => (
             <article key={i} className="odd:bg-[#F1F2F6] py-8">

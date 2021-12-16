@@ -59,7 +59,7 @@ function PastEvent({ events }) {
             }}
           >
             {events.length === 0 ? (
-              <SkeletonLoader vtl />
+              <SkeletonLoader pastEvent />
             ) : (
               events.map((event, i) => (
                 <SwiperSlide key={i}>
