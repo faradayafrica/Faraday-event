@@ -1,32 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Arrow from "../../images/arrow.svg";
+import Button from "../Button";
+
 import SkeletonLoader from "../SkeletonLoader";
 
-const data = [
-  {
-    title: "Event Title",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic officiis eveniet ratione ab obcaecati! Quisquam quibusdam voluptates atque unde culpa!",
-    image:
-      "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
-  },
-  {
-    title: "Event Title",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic officiis eveniet ratione ab obcaecati! Quisquam quibusdam voluptates atque unde culpa!",
-    image:
-      "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
-  },
-  {
-    title: "Event Title",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic officiis eveniet ratione ab obcaecati! Quisquam quibusdam voluptates atque unde culpa!",
-    image:
-      "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
-  },
-];
+// const data = [
+//   {
+//     title: "Event Title",
+//     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic officiis eveniet ratione ab obcaecati! Quisquam quibusdam voluptates atque unde culpa!",
+//     image:
+//       "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
+//   },
+//   {
+//     title: "Event Title",
+//     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic officiis eveniet ratione ab obcaecati! Quisquam quibusdam voluptates atque unde culpa!",
+//     image:
+//       "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
+//   },
+//   {
+//     title: "Event Title",
+//     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic officiis eveniet ratione ab obcaecati! Quisquam quibusdam voluptates atque unde culpa!",
+//     image:
+//       "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
+//   },
+// ];
 
 function EventList({ events }) {
   return (
-    <section className="my-5">
+    <section className="my-12">
       <h2 className="container text-xl md:text-2xl font-bold">
         Upcoming Events
       </h2>
@@ -37,11 +38,16 @@ function EventList({ events }) {
           events?.map((event, i) => (
             <article key={i} className="odd:bg-[#F1F2F6] py-8">
               <div className="container md:flex gap-12">
-                <img
-                  src={event?.fields?.cover_image[0].url}
-                  alt={event?.fields?.title}
-                  className="block w-full md:w-[300px] bg-cover object-cover"
-                />
+                <Link
+                  to={`/event/${event?.id}`}
+                  className="block md:min-w-[300px] md:h-[300px] object-cover"
+                >
+                  <img
+                    src={event?.fields?.cover_image[0].url}
+                    alt={event?.fields?.title}
+                    className="block w-full md:w-[300px] md:h-[300px] object-cover"
+                  />
+                </Link>
 
                 <div className="space-y-3 my-3">
                   <h3 className="text-lg md:text-2xl font-semibold">
@@ -49,18 +55,7 @@ function EventList({ events }) {
                   </h3>
                   <p>{event?.fields?.description}</p>
 
-                  <Link
-                    to={`/event/${event?.id}`}
-                    className="inline-block mt-5 text-primary"
-                  >
-                    Learn More
-                    <img
-                      src={Arrow}
-                      alt="arrow"
-                      aria-hidden="true"
-                      className="inline ml-5"
-                    />
-                  </Link>
+                  <Button link={event?.id} />
                 </div>
               </div>
             </article>

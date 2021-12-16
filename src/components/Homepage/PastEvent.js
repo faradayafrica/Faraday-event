@@ -1,16 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Arrow from "../../images/arrow.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import Swiper core and required modules
-import SwiperCore, { Navigation } from "swiper";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import SkeletonLoader from "../SkeletonLoader";
+import Button from "../Button";
 
 // install Swiper modules
-SwiperCore.use([Navigation]);
+// SwiperCore.use([Navigation]);
 
+// Import Swiper styles
 import "swiper/css";
+import "swiper/css/navigation";
 import "swiper/css/pagination";
-import SkeletonLoader from "../SkeletonLoader";
+import "swiper/css/scrollbar";
+import { Link } from "react-router-dom";
 
 const data = [
   {
@@ -35,7 +38,7 @@ const data = [
 
 function PastEvent({ events }) {
   return (
-    <section>
+    <section id="past-events">
       <h2 className="container text-xl md:text-2xl font-bold">
         Our past event
       </h2>
@@ -43,9 +46,10 @@ function PastEvent({ events }) {
       <div className="bg-[#F1F2F6] py-12 mt-4">
         <div className="container">
           <Swiper
-            navigation={true}
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            navigation
             slidesPerView={1}
-            spaceBetween={10}
+            spaceBetween={25}
             className="mySwiper"
             breakpoints={{
               768: {
@@ -60,29 +64,24 @@ function PastEvent({ events }) {
               events.map((event, i) => (
                 <SwiperSlide key={i}>
                   <article>
-                    <img
-                      src={event?.fields?.cover_image[0].url}
-                      alt={event?.fields?.title}
-                      className="w-full h-[300px] object-cover"
-                    />
+                    <Link
+                      to={`/event/${event?.id}`}
+                      className="block w-full md:h-[300px] object-cover"
+                    >
+                      <img
+                        src={event?.fields?.cover_image[0].url}
+                        alt={event?.fields?.title}
+                        className="w-full h-[300px] object-cover"
+                      />
+                    </Link>
 
                     <div className="space-y-3 my-3">
                       <h3 className="text-lg md:text-2xl font-semibold">
                         {event?.fields?.title}
                       </h3>
                       <p>{event?.fields?.description}</p>
-                      <Link
-                        to={`/event/${event?.id}`}
-                        className="inline-block mt-5 text-primary"
-                      >
-                        Learn More
-                        <img
-                          src={Arrow}
-                          alt="arrow"
-                          aria-hidden="true"
-                          className="inline ml-5"
-                        />
-                      </Link>
+
+                      <Button link={event?.id} />
                     </div>
                   </article>
                 </SwiperSlide>

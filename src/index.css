@@ -4,12 +4,31 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --swiper-navigation-size: 25px !important;
+  --swiper-theme-color: #000 !important;
+}
+
 html {
   @apply scroll-smooth;
 }
 
 body {
   @apply font-poppins;
+}
+
+.swiper {
+  padding: 0 20px !important;
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  right: 0px !important;
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  left: 0 !important;
 }
 
 @layer utilities {

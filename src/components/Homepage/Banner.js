@@ -10,8 +10,9 @@ function Banner() {
 
       <img
         src={BgBottom}
-        alt=""
+        alt="bgBottom"
         className="hidden container absolute -bottom-[60px] left-0 right-0 md:block"
+        aria-hidden="true"
       />
     </div>
   );
