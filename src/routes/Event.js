@@ -32,6 +32,7 @@ function Event() {
   const bannerImage = event?.fields?.cover_image[0].url;
   const eventId = event?.id;
   const eventSpeakers = event?.fields?.event_speaker;
+  const eventDate = event?.fields?.date;
 
   return (
     <div className="relative">
@@ -46,16 +47,17 @@ function Event() {
           </Link>
         </div>
         <Banner bannerImage={bannerImage} eventTitle={eventTitle} />
-        <div className="container md:grid gap-8 [grid-template-columns:1fr_1fr] my-5">
-          <div className="space-y-12">
-            <Countdown eventTitle={eventTitle} />
-            <Description />
-            <Speakers eventSpeakers={eventSpeakers} />
-            <Schedule />
+        <div className="container">
+          <div className=" md:grid gap-8 [grid-template-columns:1fr_1fr] mb-12">
+            <div className="space-y-12">
+              <Countdown eventTitle={eventTitle} eventDate={eventDate} />
+              <Description event={event} />
+              <Speakers eventSpeakers={eventSpeakers} />
+              <Schedule />
+            </div>
+            <Form eventId={eventId} />
           </div>
-          <Form eventId={eventId} />
         </div>
-
         <Footer />
       </div>
     </div>

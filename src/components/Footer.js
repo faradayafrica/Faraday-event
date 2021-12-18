@@ -22,7 +22,7 @@ function Footer() {
                 <Link to="#">All events</Link>
               </li>
               <li>
-                <Link to="#past-events">Past events</Link>
+                <Link to="/#past-events">Past events</Link>
               </li>
               <li>
                 <Link to="#">Gallery</Link>
