@@ -4,12 +4,44 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --swiper-navigation-size: 25px !important;
+  --swiper-theme-color: #000 !important;
+}
+
 html {
   @apply scroll-smooth;
 }
 
 body {
   @apply font-poppins;
+}
+
+.swiper {
+  padding: 0 20px !important;
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  right: 0px !important;
+}
+
+.event-banner {
+  background: linear-gradient(
+    180deg,
+    rgba(14, 13, 11, 0) 0%,
+    rgba(14, 13, 11, 0.67) 98.44%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(14, 13, 11, 0) -8.16%,
+    rgba(14, 13, 11, 0.88) 100%
+  );
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  left: 0 !important;
 }
 
 @layer utilities {
@@ -20,6 +52,6 @@ body {
   .container {
     width: 90%;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1025px;
   }
 }

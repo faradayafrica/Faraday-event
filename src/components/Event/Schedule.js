@@ -34,13 +34,21 @@ function Schedule() {
 
       <div className="space-y-5 first:mt-5">
         {schedules.map((schedule, i) => (
-          <div key={i}>
-            <span className="flex gap-3">
-              <img src={Clock} alt="" /> {schedule.time}
-            </span>
+          <div key={i} className="">
+            <div className="space-y-4 ml-3">
+              <span className="flex gap-3">
+                <img src={Clock} alt="clock" /> {schedule.time}
+              </span>
 
-            <h3>{schedule.topic}</h3>
-            <p>{schedule.desc}</p>
+              <h3 className="text-lg font-semibold">{schedule.topic}</h3>
+              <p>{schedule.desc}</p>
+
+              <p>
+                By <span className="text-primary">{schedule.speaker}</span>
+              </p>
+            </div>
+
+            <hr className="bg-[#3F3F41] mt-4" />
           </div>
         ))}
       </div>

@@ -2,12 +2,8 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./routes/Homepage";
 import Event from "./routes/Event";
-import Airtable from "airtable";
 import { useEffect, useState } from "react";
-
-const base = new Airtable({
-  apiKey: process.env.REACT_APP_API_KEY,
-}).base(process.env.REACT_APP_BASE);
+import base from "./util";
 
 function App() {
   const [events, setEvents] = useState([]);
