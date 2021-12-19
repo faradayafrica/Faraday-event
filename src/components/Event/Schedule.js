@@ -3,33 +3,6 @@ import Clock from "../../images/clock.svg";
 import base from "../../util";
 import SkeletonLoader from "../SkeletonLoader";
 
-// const schedules = [
-//   {
-//     topic: "Event Topic",
-//     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci, malesuada placerat nec mattis posuere massa. Neque a lectus suspendisse urna cursus nullam. Euismod pulvinar ut a ut elit. Bibendum bibendum in a, vulputate quam. Adipiscing sed nisl lectus sit ut nibh. Dis cras molestie vulputate phasellus habitant semper blandit. Euismod sit in magnis augue vitae.",
-//     speaker: "James Doe",
-//     time: "9am - 9:30am",
-//   },
-//   {
-//     topic: "Event Topic",
-//     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci, malesuada placerat nec mattis posuere massa. Neque a lectus suspendisse urna cursus nullam. Euismod pulvinar ut a ut elit. Bibendum bibendum in a, vulputate quam. Adipiscing sed nisl lectus sit ut nibh. Dis cras molestie vulputate phasellus habitant semper blandit. Euismod sit in magnis augue vitae.",
-//     speaker: "James Doe",
-//     time: "9am - 9:30am",
-//   },
-//   {
-//     topic: "Event Topic",
-//     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci, malesuada placerat nec mattis posuere massa. Neque a lectus suspendisse urna cursus nullam. Euismod pulvinar ut a ut elit. Bibendum bibendum in a, vulputate quam. Adipiscing sed nisl lectus sit ut nibh. Dis cras molestie vulputate phasellus habitant semper blandit. Euismod sit in magnis augue vitae.",
-//     speaker: "James Doe",
-//     time: "9am - 9:30am",
-//   },
-//   {
-//     topic: "Event Topic",
-//     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci, malesuada placerat nec mattis posuere massa. Neque a lectus suspendisse urna cursus nullam. Euismod pulvinar ut a ut elit. Bibendum bibendum in a, vulputate quam. Adipiscing sed nisl lectus sit ut nibh. Dis cras molestie vulputate phasellus habitant semper blandit. Euismod sit in magnis augue vitae.",
-//     speaker: "James Doe",
-//     time: "9am - 9:30am",
-//   },
-// ];
-
 function Schedule() {
   const [schedules, setSchedules] = useState([]);
 
@@ -37,7 +10,6 @@ function Schedule() {
     base("event_schedule")
       .select({ view: "Grid view" })
       .eachPage((records, fetchNextPage) => {
-        console.log(records);
         setSchedules(records);
         fetchNextPage();
       });

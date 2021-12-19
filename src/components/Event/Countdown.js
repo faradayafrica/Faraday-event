@@ -1,10 +1,23 @@
 import React, { useEffect, useState } from "react";
 
-function Countdown({ eventTitle, eventDate }) {
+function Countdown({ eventTitle, eventDate, eventTime }) {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
+  // function formatTime(eventTime) {
+  //   if (eventTime === undefined) return;
+
+  //   if (eventTime.includes("am")) {
+  //     return eventTime.replace("am", ":00");
+  //   }
+  //   if (eventTime.includes("pm")) {
+  //     return eventTime.replace("pm", ":00");
+  //   }
+  // }
+
+  // console.log(`${eventDate} ${eventTime}`);
+
   function calculateTimeLeft() {
-    let difference = +new Date(`${eventDate}`) - +new Date();
+    let difference = +new Date(`${eventDate} ${eventTime}`) - +new Date();
 
     let timeLeft = {};
 

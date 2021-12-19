@@ -22,6 +22,7 @@ function Event() {
         console.error(err);
         return;
       }
+      console.log(record);
       setEvent(record);
     });
 
@@ -33,6 +34,7 @@ function Event() {
   const eventId = event?.id;
   const eventSpeakers = event?.fields?.event_speaker;
   const eventDate = event?.fields?.date;
+  const eventTime = event?.fields?.time;
 
   return (
     <div className="relative">
@@ -50,7 +52,11 @@ function Event() {
         <div className="container">
           <div className=" md:grid gap-8 [grid-template-columns:1fr_1fr] mb-12">
             <div className="space-y-12">
-              <Countdown eventTitle={eventTitle} eventDate={eventDate} />
+              <Countdown
+                eventTitle={eventTitle}
+                eventDate={eventDate}
+                eventTime={eventTime}
+              />
               <Description event={event} />
               <Speakers eventSpeakers={eventSpeakers} />
               <Schedule />
