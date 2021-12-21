@@ -20,27 +20,33 @@ function Description({ event }) {
 
       <ul className="space-y-5">
         <li className="flex">
-          <img src={Location} alt="" className="mr-4" />{" "}
           {event.length === 0 ? (
             <span className="animate-pulse block w-full h-[10px] bg-[#0000003d] rounded"></span>
           ) : (
-            event?.fields?.venue
+            <>
+              <img src={Location} alt="" className="mr-4" />{" "}
+              {event?.fields?.venue}
+            </>
           )}
         </li>
         <li className="flex">
-          <img src={Calendar} alt="" className="mr-4" />
           {event.length === 0 ? (
             <span className="animate-pulse block w-[50%] h-[10px] bg-[#0000003d] rounded"></span>
           ) : (
-            event?.fields?.date
+            <>
+              <img src={Calendar} alt="" className="mr-4" />
+              {event?.fields?.date}
+            </>
           )}
         </li>
         <li className="flex">
-          <img src={Clock} alt="" className="mr-4" />
           {event.length === 0 ? (
             <span className="animate-pulse block w-[50%] h-[10px] bg-[#0000003d] rounded"></span>
           ) : (
-            `${event?.fields?.time} prompt`
+            <>
+              <img src={Clock} alt="" className="mr-4" />
+              {`${event?.fields?.time} prompt`}
+            </>
           )}
         </li>
       </ul>
