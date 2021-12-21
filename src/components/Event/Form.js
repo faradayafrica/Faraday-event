@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import base from "../../util";
 import { useForm } from "react-hook-form";
 
-function Form({ eventId }) {
+function Form({ eventId, eventCompleted }) {
   const [loading, setLoading] = useState(false);
 
   const {
@@ -53,7 +53,10 @@ function Form({ eventId }) {
             {...register("firstName", { required: true })}
             id="firstName"
             placeholder="First name"
-            className="w-full bg-[#c4c4c454] p-3 placeholder:text-[#3F3F41]"
+            disabled={eventCompleted ? true : false}
+            className={`form-input ${
+              eventCompleted ? "cursor-not-allowed" : ""
+            } bg-[#c4c4c454]`}
           />
           {errors.firstName?.type === "required" && (
             <span className="text-red-500 text-sm">First name is required</span>
@@ -64,7 +67,10 @@ function Form({ eventId }) {
             {...register("lastName", { required: true })}
             id="lastName"
             placeholder="Last name"
-            className="w-full bg-[#c4c4c454] p-3 placeholder:text-[#3F3F41]"
+            disabled={eventCompleted ? true : false}
+            className={`form-input ${
+              eventCompleted ? " cursor-not-allowed" : ""
+            } bg-[#c4c4c454]`}
           />
           {errors.lastName?.type === "required" && (
             <span className="text-red-500 text-sm">Last Name is required</span>
@@ -77,7 +83,10 @@ function Form({ eventId }) {
             {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
             id="email"
             placeholder="Email"
-            className="w-full bg-[#c4c4c454] p-3 placeholder:text-[#3F3F41]"
+            disabled={eventCompleted ? true : false}
+            className={`form-input ${
+              eventCompleted ? " cursor-not-allowed" : ""
+            } bg-[#c4c4c454]`}
           />
           {errors.email?.type === "required" && (
             <span className="text-red-500 text-sm">Email is required</span>
@@ -85,7 +94,12 @@ function Form({ eventId }) {
 
           <button
             type="submit"
-            className="flex justify-center items-center text-white bg-primary p-4 w-full"
+            disabled={eventCompleted ? true : false}
+            className={`flex justify-center items-center text-white  p-4 w-full ${
+              eventCompleted
+                ? "bg-[#05b85073] cursor-not-allowed"
+                : "bg-primary"
+            }`}
           >
             {loading && (
               <svg

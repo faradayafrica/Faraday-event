@@ -3,17 +3,30 @@ import Clock from "../../images/clock.svg";
 import base from "../../util";
 import SkeletonLoader from "../SkeletonLoader";
 
-function Schedule() {
+function Schedule({ eventSchedules }) {
   const [schedules, setSchedules] = useState([]);
 
+  // useEffect(() => {
+  //   base("event_schedule")
+  //     .select({ view: "Grid view" })
+  //     .eachPage((records, fetchNextPage) => {
+  //       setSchedules(records);
+  //       fetchNextPage();
+  //     });
+  // }, []);
+
   useEffect(() => {
-    base("event_schedule")
-      .select({ view: "Grid view" })
-      .eachPage((records, fetchNextPage) => {
-        setSchedules(records);
-        fetchNextPage();
+    eventSchedules &&
+      eventSchedules.forEach((schedule) => {
+        base("event_schedule").find(schedule, function (err, record) {
+          if (err) {
+            console.error(err);
+            return;
+          }
+          setSchedules((prevState) => [...prevState, record]);
+        });
       });
-  }, []);
+  }, [eventSchedules]);
 
   return (
     <section className="space-y-4">
@@ -23,7 +36,7 @@ function Schedule() {
         {schedules.length === 0 ? (
           <SkeletonLoader schedule />
         ) : (
-          schedules.map((schedule, i) => (
+          schedules?.map((schedule, i) => (
             <div
               key={i}
               className="pb-4 border-gray-400 border-b-2 last:border-0"

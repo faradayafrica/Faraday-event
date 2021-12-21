@@ -3,7 +3,7 @@ import Location from "../../images/location.svg";
 import Clock from "../../images/clock.svg";
 import Calendar from "../../images/calendar.svg";
 
-function Description({ event }) {
+function Description({ event, eventCompleted }) {
   return (
     <section className="space-y-4">
       <h2 className="event__title">Event Description</h2>
@@ -51,12 +51,14 @@ function Description({ event }) {
         </li>
       </ul>
 
-      <a
-        href="#register"
-        className="block text-white text-center bg-primary p-4 w-full md:hidden"
-      >
-        Register
-      </a>
+      {!eventCompleted && (
+        <a
+          href="#register"
+          className="block text-white text-center bg-primary p-4 w-full md:hidden"
+        >
+          Register
+        </a>
+      )}
     </section>
   );
 }

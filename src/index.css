@@ -17,6 +17,10 @@ body {
   @apply font-poppins;
 }
 
+.form-input {
+  @apply w-full p-3 placeholder:text-[#3F3F41];
+}
+
 .swiper {
   padding: 0 20px !important;
 }

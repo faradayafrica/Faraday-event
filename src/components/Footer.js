@@ -22,10 +22,10 @@ function Footer() {
                 <Link to="#">All events</Link>
               </li>
               <li>
-                <Link to="/#past-events">Past events</Link>
+                <a href="#past-events">Past events</a>
               </li>
               <li>
-                <Link to="#">Gallery</Link>
+                <Link to="/gallery">Gallery</Link>
               </li>
             </ul>
           </div>
@@ -34,9 +34,18 @@ function Footer() {
             <h4 className="text-lg mb-3">Socials</h4>
 
             <div className="flex gap-3">
-              <img src={Github} alt="youtube" />
-              <img src={Youtube} alt="youtube" />
-              <img src={Twitter} alt="youtube" />
+              <a href="https://github.com/faradayafrica" target="_blank">
+                <img src={Github} alt="youtube" />
+              </a>
+              <a
+                href="https://youtube.com/channel/UCtNFJ9q1z52ICj3FqeyHjxw"
+                target="_blank"
+              >
+                <img src={Youtube} alt="youtube" />
+              </a>
+              <a href="https://twitter.com/faradayafrica" target="_blank">
+                <img src={Twitter} alt="youtube" />
+              </a>
             </div>
           </div>
         </div>

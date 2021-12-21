@@ -22,7 +22,7 @@ function Event() {
         console.error(err);
         return;
       }
-      console.log(record);
+      // console.log(record);
       setEvent(record);
     });
 
@@ -35,6 +35,8 @@ function Event() {
   const eventSpeakers = event?.fields?.event_speaker;
   const eventDate = event?.fields?.date;
   const eventTime = event?.fields?.time;
+  const eventCompleted = event?.fields?.event_completed === true;
+  const eventSchedules = event?.fields?.event_schedule;
 
   return (
     <div className="relative">
@@ -50,18 +52,19 @@ function Event() {
         </div>
         <Banner bannerImage={bannerImage} eventTitle={eventTitle} />
         <div className="container">
-          <div className=" md:grid gap-8 [grid-template-columns:1fr_1fr] mb-12">
+          <div className="md:grid gap-8 [grid-template-columns:1fr_1fr] mb-12">
             <div className="space-y-12">
               <Countdown
                 eventTitle={eventTitle}
                 eventDate={eventDate}
                 eventTime={eventTime}
               />
-              <Description event={event} />
+              <Description event={event} eventCompleted={eventCompleted} />
               <Speakers eventSpeakers={eventSpeakers} />
-              <Schedule />
+              <Schedule eventSchedules={eventSchedules} />
             </div>
-            <Form eventId={eventId} />
+
+            <Form eventId={eventId} eventCompleted={eventCompleted} />
           </div>
         </div>
         <Footer />

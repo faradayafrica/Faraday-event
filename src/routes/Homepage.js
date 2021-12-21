@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "../components/Homepage/Banner";
 import EventList from "../components/Homepage/EventList";
 import Footer from "../components/Footer";
@@ -11,12 +11,13 @@ function Homepage({ events }) {
     events.filter((event) => event?.fields?.event_completed == undefined);
   const pastEvents =
     events && events.filter((event) => event?.fields?.event_completed == true);
+
   return (
     <div className="">
       <Navigation />
       <Banner />
-      <EventList events={upComingEvents} />
-      <PastEvent events={pastEvents} />
+      {upComingEvents && <EventList events={upComingEvents} />}
+      {pastEvents.length > 0 && <PastEvent events={pastEvents} />}
       <Footer />
     </div>
   );
