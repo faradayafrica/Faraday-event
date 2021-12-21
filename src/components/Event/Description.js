@@ -1,33 +1,53 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Location from "../../images/location.svg";
 import Clock from "../../images/clock.svg";
 import Calendar from "../../images/calendar.svg";
 
-function Description() {
+function Description({ event }) {
   return (
     <section className="space-y-4">
       <h2 className="event__title">Event Description</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus pretium
-        integer imperdiet nulla lorem ornare. Sit cursus tincidunt est justo.
-        Odio vitae bibendum tempor sit. Eros rhoncus, viverra urna ultricies
-        enim augue auctor. Nisl fames id consequat aliquet mauris in sit lectus
-        nisl. Quis integer mattis nulla ligula. Adipiscing aliquam dui
-        sollicitudin urna.
-      </p>
+      {event.length === 0 ? (
+        <div className="space-y-2">
+          <span className="animate-pulse block w-full h-[10px] bg-[#0000003d] rounded"></span>
+          <span className="animate-pulse block w-full h-[10px] bg-[#0000003d] rounded"></span>
+          <span className="animate-pulse block w-full h-[10px] bg-[#0000003d] rounded"></span>
+          <span className="animate-pulse block w-[150px] h-[10px] bg-[#0000003d] rounded"></span>
+        </div>
+      ) : (
+        <p>{event?.fields?.description}</p>
+      )}
 
       <ul className="space-y-5">
         <li className="flex">
-          <img src={Location} alt="" className="mr-4" /> PDTF Auditorium,
-          Engineering faculty Unizik
+          {event.length === 0 ? (
+            <span className="animate-pulse block w-full h-[10px] bg-[#0000003d] rounded"></span>
+          ) : (
+            <>
+              <img src={Location} alt="" className="mr-4" />{" "}
+              {event?.fields?.venue}
+            </>
+          )}
         </li>
         <li className="flex">
-          <img src={Calendar} alt="" className="mr-4" />
-          8th January, 2021
+          {event.length === 0 ? (
+            <span className="animate-pulse block w-[50%] h-[10px] bg-[#0000003d] rounded"></span>
+          ) : (
+            <>
+              <img src={Calendar} alt="" className="mr-4" />
+              {event?.fields?.date}
+            </>
+          )}
         </li>
         <li className="flex">
-          <img src={Clock} alt="" className="mr-4" />
-          9am prompt
+          {event.length === 0 ? (
+            <span className="animate-pulse block w-[50%] h-[10px] bg-[#0000003d] rounded"></span>
+          ) : (
+            <>
+              <img src={Clock} alt="" className="mr-4" />
+              {`${event?.fields?.time} prompt`}
+            </>
+          )}
         </li>
       </ul>
 
