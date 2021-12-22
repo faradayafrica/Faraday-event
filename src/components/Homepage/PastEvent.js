@@ -15,27 +15,6 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Link } from "react-router-dom";
 
-const data = [
-  {
-    title: "Event Title",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic officiis eveniet ratione ab obcaecati! Quisquam quibusdam voluptates atque unde culpa!",
-    image:
-      "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
-  },
-  {
-    title: "Event Title",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic officiis eveniet ratione ab obcaecati! Quisquam quibusdam voluptates atque unde culpa!",
-    image:
-      "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
-  },
-  {
-    title: "Event Title",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic officiis eveniet ratione ab obcaecati! Quisquam quibusdam voluptates atque unde culpa!",
-    image:
-      "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
-  },
-];
-
 function PastEvent({ events }) {
   return (
     <section id="past-events">
@@ -66,12 +45,13 @@ function PastEvent({ events }) {
                   <article>
                     <Link
                       to={`/event/${event?.id}`}
-                      className="block w-full md:h-[300px] object-cover"
+                      className="block w-full md:min-w-[300px] md:h-[250px] object-cover"
                     >
                       <img
                         src={event?.fields?.cover_image[0].url}
                         alt={event?.fields?.title}
-                        className="w-full h-[300px] object-cover"
+                        className="w-[300px] md:h-[250px] object-cover"
+                        loading="lazy"
                       />
                     </Link>
 
