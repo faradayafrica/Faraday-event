@@ -27,7 +27,7 @@ import SkeletonLoader from "../SkeletonLoader";
 
 function EventList({ events }) {
   return (
-    <section className="my-12">
+    <section className="my-12" id="events">
       <h2 className="container text-xl md:text-2xl font-bold">
         Upcoming Events
       </h2>
@@ -40,21 +40,23 @@ function EventList({ events }) {
               <div className="container md:flex gap-12">
                 <Link
                   to={`/event/${event?.id}`}
-                  className="block md:min-w-[300px] md:h-[300px] object-cover"
+                  className="block md:min-w-[300px] md:h-[250px] object-cover"
                 >
                   <img
                     src={event?.fields?.cover_image[0].url}
                     alt={event?.fields?.title}
-                    className="block w-full md:w-[300px] md:h-[300px] object-cover"
+                    className="block w-full md:w-[300px] md:h-[250px] object-cover"
+                    loading="lazy"
                   />
                 </Link>
 
-                <div className="space-y-3 my-3">
-                  <h3 className="text-lg md:text-2xl font-semibold">
-                    {event?.fields?.title}
-                  </h3>
-                  <p>{event?.fields?.description}</p>
-
+                <div className="flex flex-col justify-between  my-3">
+                  <div className="space-y-3">
+                    <h3 className="text-lg md:text-2xl font-semibold">
+                      {event?.fields?.title}
+                    </h3>
+                    <p>{event?.fields?.description}</p>
+                  </div>
                   <Button link={event?.id} />
                 </div>
               </div>

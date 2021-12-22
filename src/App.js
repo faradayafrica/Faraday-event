@@ -4,6 +4,7 @@ import Homepage from "./routes/Homepage";
 import Event from "./routes/Event";
 import { useEffect, useState } from "react";
 import base from "./util";
+import Gallery from "./routes/Gallery";
 
 function App() {
   const [events, setEvents] = useState([]);
@@ -25,6 +26,7 @@ function App() {
           <Route path="event" element={<Event />}>
             <Route path=":eventId" element={<Event />} />
           </Route>
+          <Route path="/gallery" element={<Gallery />} />
         </Routes>
       </BrowserRouter>
     </>

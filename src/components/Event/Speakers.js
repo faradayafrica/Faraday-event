@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import base from "../../util";
 import SkeletonLoader from "../SkeletonLoader";
@@ -27,24 +27,19 @@ const data = [
 function Speakers({ eventSpeakers }) {
   const [speakers, setSpeakers] = useState([]);
 
-  // console.log(eventSpeakers, "eventSpeakers");
+  useEffect(() => {
+    eventSpeakers &&
+      eventSpeakers.forEach((speaker) => {
+        base("event_speaker").find(speaker, function (err, record) {
+          if (err) {
+            console.error(err);
+            return;
+          }
+          setSpeakers((prevState) => [...prevState, record]);
+        });
+      });
+  }, [eventSpeakers]);
 
-  // useEffect(() => {
-  //   eventSpeakers &&
-  //     eventSpeakers.forEach((speaker) => {
-  //       base("event_speaker").find(speaker, function (err, record) {
-  //         if (err) {
-  //           console.error(err);
-  //           return;
-  //         }
-  //         setSpeakers((prevState) => [...prevState, record]);
-  //       });
-  //     });
-  // }, [eventSpeakers]);
-
-  // useEffect(() => {
-  //   console.log(speakers, "speakers");
-  // }, [speakers]);
   return (
     <section className="space-y-4">
       <h2 className="event__title">Speakers</h2>
@@ -61,7 +56,9 @@ function Speakers({ eventSpeakers }) {
                 className="w-[150px] h-[150px] object-cover mx-auto"
               />
               <h4 className="text-center">{speaker?.fields?.full_name}</h4>
-              <p className="text-center">{speaker?.fields?.title}</p>
+              <p className="text-center text-[#3f3f41b3]">
+                {speaker?.fields?.title}
+              </p>
             </div>
           ))
         )}

@@ -29,10 +29,10 @@ export default function Navigation({ event }) {
 
           <ul className={`items-center space-x-4 hidden md:flex`}>
             <li>
-              <Link to="/">Past Events</Link>
+              <a href="#past-events">Past Events</a>
             </li>
             <li>
-              <Link to="/">Gallery</Link>
+              <Link to="/gallery">Gallery</Link>
             </li>
           </ul>
         </>
