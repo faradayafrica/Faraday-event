@@ -5,7 +5,7 @@ import Menu from "../images/menu.svg";
 import Close from "../images/close.svg";
 import Back from "../images/back-arrow.svg";
 
-export default function Navigation({ event }) {
+export default function Navigation({ event, gallery }) {
   const [open, setOpen] = useState(false);
   return (
     <nav
@@ -17,9 +17,10 @@ export default function Navigation({ event }) {
         <img src={Logo} alt="faraday logo" />
       </Link>
 
-      {event ? (
-        <Link to="/">
+      {event || gallery ? (
+        <Link to="/" className="flex gap-3 items-center">
           <img src={Back} alt="back" aria-hidden="true" />
+          {gallery && <span>Return</span>}
         </Link>
       ) : (
         <>

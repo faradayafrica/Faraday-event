@@ -57,6 +57,17 @@ input {
   left: 0 !important;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scroll-bar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 @layer utilities {
   .event__title {
     @apply text-xl md:text-2xl font-bold;

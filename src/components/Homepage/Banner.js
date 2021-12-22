@@ -3,7 +3,7 @@ import BgBottom from "../../images/bg-bottom.svg";
 
 function Banner() {
   return (
-    <div className="h-[60vh] bg-[#00000065] text-white bg-homeBanner bg-no-repeat bg-cover grid place-content-center relative">
+    <div className="min-h-[60vh] bg-[#00000065] text-white bg-homeBanner bg-no-repeat bg-cover grid place-content-center relative">
       <h1 className="text-center text-2xl  md:text-5xl font-bold md:leading-snug container max-w-[784px]">
         Empowering students by building tools that improves learning experience.
       </h1>

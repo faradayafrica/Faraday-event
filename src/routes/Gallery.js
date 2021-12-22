@@ -11,14 +11,14 @@ function Gallery() {
     base("gallery")
       .select({ view: "Grid view" })
       .eachPage((records, fetchNextPage) => {
-        setImages(records);
+        setImages(records[0].fields.images);
         fetchNextPage();
       });
   }, []);
 
   return (
     <>
-      <Navigation />
+      <Navigation gallery />
       <Display images={images} />
       <Footer />
     </>
