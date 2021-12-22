@@ -7,22 +7,24 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="bg-[#3F3F41] py-14 ">
+    <div className="bg-[#3F3F41] py-14 md:bg-footerBg md:pb-32 md:[background-position:_center_255px]">
       <div className="container  text-white">
         <img src={Logo} alt="faraday logo" className="mb-8" />
-        <div className="grid md:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
             <h4 className="text-lg mb-3">Quick links</h4>
 
             <ul className="text-sm font-normal space-y-3">
               <li>
-                <Link to="#">About Faraday</Link>
+                <a href="https://faraday.africa/" target="_blank">
+                  About Faraday
+                </a>
               </li>
               <li>
-                <Link to="#">All events</Link>
+                <a href="/#events">All events</a>
               </li>
               <li>
-                <a href="#past-events">Past events</a>
+                <a href="/#past-events">Past events</a>
               </li>
               <li>
                 <Link to="/gallery">Gallery</Link>

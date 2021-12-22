@@ -50,7 +50,7 @@ function Schedule({ eventSchedules }) {
                 <h3 className="text-lg font-semibold">
                   {schedule?.fields?.topic}
                 </h3>
-                <p>{schedule?.fields?.notes}</p>
+                <p className="text-sm">{schedule?.fields?.notes}</p>
 
                 <p>
                   By{" "}

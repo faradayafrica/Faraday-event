@@ -56,7 +56,9 @@ function Speakers({ eventSpeakers }) {
                 className="w-[150px] h-[150px] object-cover mx-auto"
               />
               <h4 className="text-center">{speaker?.fields?.full_name}</h4>
-              <p className="text-center">{speaker?.fields?.title}</p>
+              <p className="text-center text-[#3f3f41b3]">
+                {speaker?.fields?.title}
+              </p>
             </div>
           ))
         )}

@@ -44,8 +44,8 @@ function Form({ eventId, eventCompleted }) {
     );
   };
   return (
-    <div className="md:-mt-12 relative" id="register">
-      <div className="bg-white sticky top-6 shadow p-5 max-w-sm mx-auto md:ml-auto">
+    <div className="mt-12 md:-mt-12 relative" id="register">
+      <div className="bg-white sticky top-6 md:shadow p-5 md:max-w-sm mx-auto md:ml-auto">
         <h3 className="text-2xl font-semibold mb-4">Register for this event</h3>
         <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
           <input
