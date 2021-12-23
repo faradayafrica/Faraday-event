@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import Banner from "../components/Event/Banner";
-import Sidebar from "../components/Event/Sidebar";
-import Description from "../components/Event/Description";
-import Speakers from "../components/Event/Speakers";
-import Schedule from "../components/Event/Schedule";
-import Footer from "../components/Footer";
-import Form from "../components/Event/Form";
-import Countdown from "../components/Event/Countdown";
-import Navigation from "../components/Navigation";
-import base from "../util";
-import Back from "../images/back-arrow.svg";
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import Banner from '../components/Event/Banner';
+import Sidebar from '../components/Event/Sidebar';
+import Description from '../components/Event/Description';
+import Speakers from '../components/Event/Speakers';
+import Schedule from '../components/Event/Schedule';
+import Footer from '../components/Footer';
+import Form from '../components/Event/Form';
+import Countdown from '../components/Event/Countdown';
+import Navigation from '../components/Navigation';
+import base from '../util';
+import Back from '../images/back-arrow.svg';
 
 function Event() {
   const params = useParams();
   const [event, setEvent] = useState([]);
 
   useEffect(() => {
-    base("events").find(params.eventId, function (err, record) {
+    base('events').find(params.eventId, function (err, record) {
       if (err) {
         console.error(err);
         return;
@@ -39,21 +39,21 @@ function Event() {
   const eventSchedules = event?.fields?.event_schedule;
 
   return (
-    <div className="relative">
+    <div className='relative'>
       <Sidebar />
       <Navigation event />
 
-      <div className="md:ml-[48px]">
-        <div className="hidden md:block container relative">
-          <Link to="/" className="absolute top-2 right-0 flex gap-2">
-            <img src={Back} alt="bg-none inline-block" />
-            <span className=" ">Return</span>
+      <div className='md:ml-[48px]'>
+        <div className='hidden md:block container relative'>
+          <Link to='/' className='absolute top-2 right-0 flex gap-2'>
+            <img src={Back} alt='bg-none inline-block' />
+            <span className=' '>Return</span>
           </Link>
         </div>
         <Banner bannerImage={bannerImage} eventTitle={eventTitle} />
-        <div className="container">
-          <div className="md:grid gap-8 [grid-template-columns:1fr_1fr] mb-12">
-            <div className="space-y-12">
+        <div className='container'>
+          <div className='md:grid gap-8 [grid-template-columns:1fr_1fr] mb-12'>
+            <div className='space-y-12'>
               <Countdown
                 eventTitle={eventTitle}
                 eventDate={eventDate}

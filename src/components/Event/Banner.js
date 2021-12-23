@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import overlay from '../../images/home-banner.svg';
 
 function Banner({ bannerImage, eventTitle }) {
   return (
@@ -8,7 +9,7 @@ function Banner({ bannerImage, eventTitle }) {
       <img
         src={bannerImage}
         alt={eventTitle}
-        className="bg-cover w-full h-full object-cover -z-10"
+        className='bg-cover w-full h-full object-cover -z-10'
       />
     </div>
   );
