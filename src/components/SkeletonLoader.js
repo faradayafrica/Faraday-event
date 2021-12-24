@@ -1,6 +1,12 @@
 import React from "react";
 
-function SkeletonLoader({ upComingEvent, pastEvent, speakers, schedule }) {
+function SkeletonLoader({
+  upComingEvent,
+  pastEvent,
+  speakers,
+  schedule,
+  gallery,
+}) {
   return (
     <>
       {pastEvent && (
@@ -76,6 +82,16 @@ function SkeletonLoader({ upComingEvent, pastEvent, speakers, schedule }) {
                 <div className="w-[60%] h-[10px] bg-[#0000005d] rounded"></div>
               </div>
             </div>
+          ))}
+
+      {gallery &&
+        Array(20)
+          .fill()
+          .map((_, i) => (
+            <div
+              key={i}
+              className="animate-pulse w-full h-[150px] md:h-full bg-[#0000005d] rounded"
+            ></div>
           ))}
     </>
   );
