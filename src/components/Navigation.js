@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../images/logo.svg";
-import Menu from "../images/menu.svg";
-import Close from "../images/close.svg";
 import Back from "../images/back-arrow.svg";
 
 export default function Navigation({ event, gallery }) {
