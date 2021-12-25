@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Banner from "../components/Homepage/Banner";
 import EventList from "../components/Homepage/EventList";
 import Footer from "../components/Footer";
@@ -8,9 +8,9 @@ import PastEvent from "../components/Homepage/PastEvent";
 function Homepage({ events }) {
   const upComingEvents =
     events &&
-    events.filter((event) => event?.fields?.event_completed == undefined);
+    events.filter((event) => event?.fields?.event_completed === undefined);
   const pastEvents =
-    events && events.filter((event) => event?.fields?.event_completed == true);
+    events && events.filter((event) => event?.fields?.event_completed === true);
 
   return (
     <div className="">

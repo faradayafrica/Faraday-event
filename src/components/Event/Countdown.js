@@ -3,19 +3,6 @@ import React, { useEffect, useState } from "react";
 function Countdown({ eventTitle, eventDate, eventTime }) {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
-  // function formatTime(eventTime) {
-  //   if (eventTime === undefined) return;
-
-  //   if (eventTime.includes("am")) {
-  //     return eventTime.replace("am", ":00");
-  //   }
-  //   if (eventTime.includes("pm")) {
-  //     return eventTime.replace("pm", ":00");
-  //   }
-  // }
-
-  // console.log(`${eventDate} ${eventTime}`);
-
   function calculateTimeLeft() {
     let difference = +new Date(`${eventDate} ${eventTime}`) - +new Date();
 
@@ -56,7 +43,7 @@ function Countdown({ eventTitle, eventDate, eventTime }) {
       <div className="bg-white px-8 py-8 shadow-md z-20">
         <div className="flex justify-between ">
           <div className="flex flex-col justify-center text-2xl font-bold">
-            {Object.keys(timeLeft).length == 0
+            {Object.keys(timeLeft).length === 0
               ? "00"
               : timeLeft.days >= 10
               ? timeLeft.days
@@ -65,7 +52,7 @@ function Countdown({ eventTitle, eventDate, eventTime }) {
             <span className="text-xs font-normal">Days</span>
           </div>
           <div className="flex flex-col justify-center text-2xl font-bold">
-            {Object.keys(timeLeft).length == 0
+            {Object.keys(timeLeft).length === 0
               ? "00"
               : timeLeft.hours >= 10
               ? timeLeft.hours
@@ -73,7 +60,7 @@ function Countdown({ eventTitle, eventDate, eventTime }) {
             <span className="text-xs font-normal">Hours</span>
           </div>
           <div className="flex flex-col justify-center text-2xl font-bold">
-            {Object.keys(timeLeft).length == 0
+            {Object.keys(timeLeft).length === 0
               ? "00"
               : timeLeft.minutes >= 10
               ? timeLeft.minutes
@@ -81,7 +68,7 @@ function Countdown({ eventTitle, eventDate, eventTime }) {
             <span className="text-xs font-normal">Minutes</span>
           </div>
           <div className="flex flex-col justify-center text-2xl font-bold">
-            {Object.keys(timeLeft).length == 0
+            {Object.keys(timeLeft).length === 0
               ? "00"
               : timeLeft.seconds >= 10
               ? timeLeft.seconds

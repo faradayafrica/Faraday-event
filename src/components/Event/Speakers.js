@@ -1,28 +1,7 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import base from "../../util";
 import SkeletonLoader from "../SkeletonLoader";
-
-const data = [
-  {
-    title: "Event Title",
-    desc: "Lorem ipsum dolor",
-    image:
-      "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
-  },
-  {
-    title: "Event Title",
-    desc: "Lorem ipsum dolor",
-    image:
-      "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
-  },
-  {
-    title: "Event Title",
-    desc: "Lorem ipsum dolor",
-    image:
-      "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
-  },
-];
 
 function Speakers({ eventSpeakers }) {
   const [speakers, setSpeakers] = useState([]);

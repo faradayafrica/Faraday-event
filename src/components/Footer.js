@@ -16,7 +16,11 @@ function Footer() {
 
             <ul className="text-sm font-normal space-y-3">
               <li>
-                <a href="https://faraday.africa/" target="_blank">
+                <a
+                  href="https://faraday.africa/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   About Faraday
                 </a>
               </li>
@@ -36,16 +40,25 @@ function Footer() {
             <h4 className="text-lg mb-3">Socials</h4>
 
             <div className="flex gap-3">
-              <a href="https://github.com/faradayafrica" target="_blank">
+              <a
+                href="https://github.com/faradayafrica"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img src={Github} alt="youtube" />
               </a>
               <a
                 href="https://youtube.com/channel/UCtNFJ9q1z52ICj3FqeyHjxw"
                 target="_blank"
+                rel="noreferrer"
               >
                 <img src={Youtube} alt="youtube" />
               </a>
-              <a href="https://twitter.com/faradayafrica" target="_blank">
+              <a
+                href="https://twitter.com/faradayafrica"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img src={Twitter} alt="youtube" />
               </a>
             </div>
