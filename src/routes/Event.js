@@ -22,7 +22,6 @@ function Event() {
         console.error(err);
         return;
       }
-      // console.log(record);
       setEvent(record);
     });
 
