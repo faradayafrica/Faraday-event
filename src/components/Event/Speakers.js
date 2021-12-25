@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import base from "../../util";
 import SkeletonLoader from "../SkeletonLoader";
 
