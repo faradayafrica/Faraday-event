@@ -37,7 +37,6 @@ function Form({ eventId, eventCompleted }) {
           return;
         }
         records.forEach(function (record) {
-          // console.log(record.getId());
           reset();
         });
         setLoading(false);

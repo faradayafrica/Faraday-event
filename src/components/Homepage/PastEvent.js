@@ -40,15 +40,20 @@ function PastEvent({ events }) {
             {events.length === 0 ? (
               <SkeletonLoader pastEvent />
             ) : (
-              events.map((event, i) => (
+              events?.map((event, i) => (
                 <SwiperSlide key={i}>
                   <article>
                     <Link
-                      to={`/event/${event?.id}`}
+                      to={
+                        event?.fields?.title &&
+                        `/${event?.fields?.title
+                          .replace(/\s+/g, "-")
+                          .toLowerCase()}?_e=${event?.id}`
+                      }
                       className="block w-full md:min-w-[300px] md:h-[250px] object-cover"
                     >
                       <img
-                        src={event?.fields?.cover_image[0].url}
+                        src={event?.fields?.cover_image?.[0]?.url}
                         alt={event?.fields?.title}
                         className="w-full md:h-[250px] object-cover"
                         loading="lazy"
@@ -61,7 +66,11 @@ function PastEvent({ events }) {
                       </h3>
                       <p>{event?.fields?.description}</p>
 
-                      <Button link={event?.id} />
+                      <Button
+                        link={`/${event?.fields?.title
+                          .replace(/\s+/g, "-")
+                          .toLowerCase()}?_e=${event?.id}`}
+                      />
                     </div>
                   </article>
                 </SwiperSlide>

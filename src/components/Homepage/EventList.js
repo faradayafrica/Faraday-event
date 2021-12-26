@@ -17,11 +17,13 @@ function EventList({ events }) {
             <article key={i} className="odd:bg-[#F1F2F6] py-8">
               <div className="container md:flex gap-12">
                 <Link
-                  to={`/event/${event?.id}`}
+                  to={`/${event?.fields?.title
+                    .replace(/\s+/g, "-")
+                    .toLowerCase()}?_e=${event?.id}`}
                   className="block md:min-w-[300px] md:h-[250px] object-cover"
                 >
                   <img
-                    src={event?.fields?.cover_image[0].url}
+                    src={event?.fields?.cover_image?.[0]?.url}
                     alt={event?.fields?.title}
                     className="block w-full md:w-[300px] md:h-[250px] object-cover"
                     loading="lazy"
@@ -35,7 +37,11 @@ function EventList({ events }) {
                     </h3>
                     <p>{event?.fields?.description}</p>
                   </div>
-                  <Button link={event?.id} />
+                  <Button
+                    link={`/${event?.fields?.title
+                      .replace(/\s+/g, "-")
+                      .toLowerCase()}?_e=${event?.id}`}
+                  />
                 </div>
               </div>
             </article>
