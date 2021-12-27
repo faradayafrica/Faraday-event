@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Banner from "../components/Event/Banner";
 import Sidebar from "../components/Event/Sidebar";
 import Description from "../components/Event/Description";
@@ -13,16 +13,17 @@ import base from "../util";
 import Back from "../images/back-arrow.svg";
 
 function Event() {
-  const params = useParams();
+  const [searchParams] = useSearchParams();
+  const eventIdQuery = searchParams.get("_e");
+
   const [event, setEvent] = useState([]);
 
   useEffect(() => {
-    base("events").find(params.eventId, function (err, record) {
+    base("events").find(eventIdQuery, function (err, record) {
       if (err) {
         console.error(err);
         return;
       }
-      // console.log(record);
       setEvent(record);
     });
 
@@ -30,7 +31,7 @@ function Event() {
   }, []);
 
   const eventTitle = event?.fields?.title;
-  const bannerImage = event?.fields?.cover_image[0].url;
+  const bannerImage = event?.fields?.cover_image?.[0].url;
   const eventId = event?.id;
   const eventSpeakers = event?.fields?.event_speaker;
   const eventDate = event?.fields?.date;

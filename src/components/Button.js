@@ -5,7 +5,7 @@ import Arrow from "../images/arrow.svg";
 function Button({ link }) {
   return (
     <Link
-      to={`/event/${link}`}
+      to={`${link}`}
       className="inline-block mt-5 text-primary transition-transform ease-in-out group"
     >
       Learn More

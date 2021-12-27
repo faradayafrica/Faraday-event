@@ -23,9 +23,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage events={events} />} />
-          <Route path="event" element={<Event />}>
-            <Route path=":eventId" element={<Event />} />
-          </Route>
+          <Route path="/:eventId" element={<Event />} />
           <Route path="/gallery" element={<Gallery />} />
         </Routes>
       </BrowserRouter>
