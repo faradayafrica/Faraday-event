@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 function Countdown({ eventTitle, eventDate, eventTime }) {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
@@ -29,51 +29,51 @@ function Countdown({ eventTitle, eventDate, eventTime }) {
   });
 
   return (
-    <div className="text-center -mt-[135px] w-full md:max-w-[420px]">
-      <h1 className="text-4xl font-bold md:text-left text-white mb-3">
+    <div className='event-head text-center -mt-[175px] w-full md:max-w-[420px]'>
+      <h1 className='text-4xl font-bold md:text-left text-white mb-3'>
         {eventTitle ? (
           eventTitle
         ) : (
-          <div className="animate-pulse my-3 w-full">
-            <div className="w-[100%] h-[20px] bg-[#0000003d] rounded md:w-[60%]"></div>
+          <div className='event-title animate-pulse my-4 w-full'>
+            <div className='w-[100%] h-[20px] bg-[#0000003d] rounded md:w-[60%]'></div>
           </div>
         )}
       </h1>
 
-      <div className="bg-white px-8 py-8 shadow-md z-20">
-        <div className="flex justify-between ">
-          <div className="flex flex-col justify-center text-2xl font-bold">
+      <div className='bg-white px-8 py-8 shadow-md z-20'>
+        <div className='flex justify-between '>
+          <div className='flex flex-col justify-center text-2xl font-bold'>
             {Object.keys(timeLeft).length === 0
-              ? "00"
+              ? '00'
               : timeLeft.days >= 10
               ? timeLeft.days
               : `0${timeLeft.days}`}
             {/* {timeLeft.days >= 10 ? timeLeft.days : `0${timeLeft.days}`} */}
-            <span className="text-xs font-normal">Days</span>
+            <span className='text-xs font-normal'>Days</span>
           </div>
-          <div className="flex flex-col justify-center text-2xl font-bold">
+          <div className='flex flex-col justify-center text-2xl font-bold'>
             {Object.keys(timeLeft).length === 0
-              ? "00"
+              ? '00'
               : timeLeft.hours >= 10
               ? timeLeft.hours
               : `0${timeLeft.hours}`}
-            <span className="text-xs font-normal">Hours</span>
+            <span className='text-xs font-normal'>Hours</span>
           </div>
-          <div className="flex flex-col justify-center text-2xl font-bold">
+          <div className='flex flex-col justify-center text-2xl font-bold'>
             {Object.keys(timeLeft).length === 0
-              ? "00"
+              ? '00'
               : timeLeft.minutes >= 10
               ? timeLeft.minutes
               : `0${timeLeft.minutes}`}
-            <span className="text-xs font-normal">Minutes</span>
+            <span className='text-xs font-normal'>Minutes</span>
           </div>
-          <div className="flex flex-col justify-center text-2xl font-bold">
+          <div className='flex flex-col justify-center text-2xl font-bold'>
             {Object.keys(timeLeft).length === 0
-              ? "00"
+              ? '00'
               : timeLeft.seconds >= 10
               ? timeLeft.seconds
               : `0${timeLeft.seconds}`}
-            <span className="text-xs font-normal">Seconds</span>
+            <span className='text-xs font-normal'>Seconds</span>
           </div>
         </div>
       </div>
