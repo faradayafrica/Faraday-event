@@ -11,10 +11,12 @@ import Countdown from "../components/Event/Countdown";
 import Navigation from "../components/Navigation";
 import base from "../util";
 import Back from "../images/back-arrow.svg";
+import Toast from "../components/Toast";
 
 function Event() {
   const [searchParams] = useSearchParams();
   const eventIdQuery = searchParams.get("_e");
+  const [toast, setToast] = useState("");
 
   const [event, setEvent] = useState([]);
 
@@ -39,16 +41,40 @@ function Event() {
   const eventCompleted = event?.fields?.event_completed === true;
   const eventSchedules = event?.fields?.event_schedule;
 
+  function determineMessage(toast) {
+    if (toast === "success") {
+      return "Registration Successful";
+    } else {
+      return "Something went wrong, try again later";
+    }
+  }
+
   return (
     <div className="relative">
       <Sidebar />
       <Navigation event />
 
-      <div className="md:ml-[48px]">
+      <div className="relative md:ml-[48px]">
+        {toast && (
+          <Toast
+            message={determineMessage(toast)}
+            info={toast}
+            duration={2000}
+            setToast={setToast}
+          />
+        )}
+
+        {/* <Toast
+          message={determineMessage(toast)}
+          info={toast}
+          duration={3000}
+          setToast={setToast}
+        /> */}
+
         <div className="hidden md:block container relative">
           <Link to="/" className="absolute top-2 right-0 flex gap-2">
             <img src={Back} alt="bg-none inline-block" />
-            <span className=" ">Return</span>
+            <span className="text-white">Return</span>
           </Link>
         </div>
         <Banner bannerImage={bannerImage} eventTitle={eventTitle} />
@@ -65,7 +91,11 @@ function Event() {
               <Schedule eventSchedules={eventSchedules} />
             </div>
 
-            <Form eventId={eventId} eventCompleted={eventCompleted} />
+            <Form
+              eventId={eventId}
+              eventCompleted={eventCompleted}
+              setToast={setToast}
+            />
           </div>
         </div>
         <Footer />
