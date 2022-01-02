@@ -18,8 +18,6 @@ function Schedule({ eventSchedules }) {
           setSchedules((prevState) => [...prevState, record]);
         });
       });
-
-    console.log(eventSchedules);
   }, [eventSchedules]);
 
   // This useEffect is for making sure the schedules data is in ascending order

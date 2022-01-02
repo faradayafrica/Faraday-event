@@ -3,7 +3,7 @@ import base from "../../util";
 import { useForm } from "react-hook-form";
 import ClosedBanner from "./closedBanner";
 
-function Form({ eventId, eventCompleted }) {
+function Form({ eventId, eventCompleted, setToast }) {
   const [loading, setLoading] = useState(false);
 
   const {
@@ -14,8 +14,6 @@ function Form({ eventId, eventCompleted }) {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-
     setLoading(true);
 
     const payload = {
@@ -34,11 +32,13 @@ function Form({ eventId, eventCompleted }) {
       function (err, records) {
         if (err) {
           console.error(err);
+          setToast("error");
           return;
         }
         records.forEach(function (record) {
           reset();
         });
+        setToast("success");
         setLoading(false);
       }
     );
