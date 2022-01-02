@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Clock from "../../images/clock.svg";
-import base from "../../util";
+import { base, getAMPM } from "../../util";
 import SkeletonLoader from "../SkeletonLoader";
 
 function Schedule({ eventSchedules }) {
@@ -54,7 +54,11 @@ function Schedule({ eventSchedules }) {
                 <span className="flex gap-2" style={{ alignItems: "center" }}>
                   <img src={Clock} alt="clock" style={{ height: "18px" }} />
                   <p className="text-md m-0">
-                    {`${schedule?.fields?.start_time} - ${schedule?.fields?.end_time}`}
+                    {`${schedule?.fields?.start_time} ${getAMPM(
+                      schedule?.fields
+                    )} - ${schedule?.fields?.end_time} ${getAMPM(
+                      schedule?.fields
+                    )}`}
                   </p>
                 </span>
 

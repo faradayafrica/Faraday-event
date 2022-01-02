@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./routes/Homepage";
 import Event from "./routes/Event";
 import { useEffect, useState } from "react";
-import base from "./util";
+import { base } from "./util";
 import Gallery from "./routes/Gallery";
 
 function App() {

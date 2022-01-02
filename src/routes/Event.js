@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 import Form from "../components/Event/Form";
 import Countdown from "../components/Event/Countdown";
 import Navigation from "../components/Navigation";
-import base from "../util";
+import { base } from "../util";
 import Back from "../images/back-arrow.svg";
 import Toast from "../components/Toast";
 
