@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import base from "../../util";
+import { base } from "../../util";
 import { useForm } from "react-hook-form";
 import ClosedBanner from "./closedBanner";
 

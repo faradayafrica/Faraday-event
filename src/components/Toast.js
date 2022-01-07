@@ -15,7 +15,7 @@ function Toast({ message, info, duration, setToast }) {
     };
   }, []);
 
-  function showIcon(params) {
+  function showIcon(info) {
     if (info === "error")
       return (
         <svg

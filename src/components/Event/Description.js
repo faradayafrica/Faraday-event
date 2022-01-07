@@ -1,7 +1,8 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Location from "../../images/location.svg";
 import Clock from "../../images/clock.svg";
 import Calendar from "../../images/calendar.svg";
+import { getAMPM } from "../../util";
 
 function Description({ event, eventCompleted }) {
   return (
@@ -45,7 +46,10 @@ function Description({ event, eventCompleted }) {
           ) : (
             <>
               <img src={Clock} alt="" className="mr-4" />
-              {`${event?.fields?.time} prompt`}
+              {`${event?.fields?.time} ${getAMPM(
+                event?.fields?.time,
+                true
+              )} prompt`}
             </>
           )}
         </li>
