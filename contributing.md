@@ -25,6 +25,6 @@ If you've never made an open source contribution before or you are wondering how
 - If you need help, you can ask questions directly in the pull request or issue. You can tage the reviewers/maintainers by typing '@' followed by their github username or just select from the dropdown option provided. 
 
 ## What does the Code of Conduct mean for me?
-- Our [Code of Conduct](CODE_OF_CONDUCT.md) means that you are responsible for treating everyone on the project with respect and courtesy regardless of their identity. If you are the victim of any inappropriate behavior or comments as described in our Code of Conduct, we are here for you and will do the best to ensure that the abuser is reprimanded appropriately, per our code.
+- Our [Code of Conduct](https://github.com/faradayafrica/.github/blob/main/code_of_conduct.md) means that you are responsible for treating everyone on the project with respect and courtesy regardless of their identity. If you are the victim of any inappropriate behavior or comments as described in our Code of Conduct, we are here for you and will do the best to ensure that the abuser is reprimanded appropriately, per our code.
 
 Portions of this contributing.md file are based off of Safia Abdalla's [template for creating open source contributor guidelines](https://opensource.com/life/16/3/contributor-guidelines-template-and-tips)
