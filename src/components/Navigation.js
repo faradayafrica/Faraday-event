@@ -5,6 +5,9 @@ import Back from "../images/back-arrow.svg";
 
 export default function Navigation({ event, gallery }) {
   const [open, setOpen] = useState(false);
+  const style = {
+    filter: "invert(1)",
+  };
 
   return (
     <nav
@@ -18,7 +21,7 @@ export default function Navigation({ event, gallery }) {
 
       {event || gallery ? (
         <Link to="/" className="flex gap-3 items-center justify-self-end">
-          <img src={Back} alt="back" aria-hidden="true" />
+          <img src={Back} alt="back" aria-hidden="true" style={style} />
           {gallery && <span>Return</span>}
         </Link>
       ) : (
