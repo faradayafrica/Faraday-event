@@ -1,6 +1,6 @@
 # Getting Started with this Project
 
-This project was bootstrapped with React + TailwindCSS 
+This project was bootstrapped with React + TailwindCSS + Airtable
 
 ## Available Scripts
 
