@@ -14,12 +14,22 @@ If you've never made an open source contribution before or you are wondering how
 4. Use `git commit -m "Insert a short message of the changes made here"` to store the contents of the index with a descriptive message.
 5. Push the changes to the remote repository using `git push origin branch-name-here`.
 6. Submit a pull request to the upstream repository.
-7. Title the pull request with a short description of the changes you made . For example, you can title an issue like so "Added John Doe to the project".
+7. Title the pull request with a short description of the changes you made and **request a review from a maintainer/reviewer**. For example, you can title an issue like so "Added John Doe to the project".
  In the description of the pull request, be sure to explain the changes that you made and any questions you have for the maintainer. It's OK if your pull request is not perfect (no pull request is), the reviewer will be able to help you fix any problems and improve it!
 1. Wait for the pull request to be reviewed by a maintainer.
 1. Make changes to the pull request if the reviewing maintainer recommends them.
 1. Celebrate your success after your pull request is merged! 🎉
 
+## Reviewer/Maintainers
+
+[Nehemiah Onyekachukwu Emmanuel](https://github.com/devgenix) <br>
+  Email: emmanueln644@gmail.com <br>
+  Twitter: https://twitter.com/devgenix <br>
+  Linkedin: https://linkedin.com/in/devgenix
+
+[Nworie Kingsley](https://github.com/nworiekingslee) <br>
+  Email: obizzkingsley@gmail.com <br>
+  Twitter: https://twitter.com/nworiekingslee
 
 ## Where can I go for help?
 - If you need help, you can ask questions directly in the pull request or issue. You can tage the reviewers/maintainers by typing '@' followed by their github username or just select from the dropdown option provided. 
