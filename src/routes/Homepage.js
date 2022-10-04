@@ -10,7 +10,7 @@ function Homepage({ events, loading }) {
     events &&
     events.filter((event) => event?.fields?.event_completed === true);
   const pastEvents =
-    events && events.filter((event) => event?.fields?.event_completed === true);
+    events && events.filter((event) => event?.fields?.event_completed === undefined);
 
   return (
     <div className="">
