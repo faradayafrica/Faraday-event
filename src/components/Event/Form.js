@@ -5,7 +5,8 @@ import ClosedBanner from "./closedBanner";
 
 function Form({ eventId, eventCompleted, setToast }) {
   const [loading, setLoading] = useState(false);
-
+  const [validFirstName, setValidFirstName] = useState(true);
+  const [validLastName, setValidLastName] = useState(true);
   const {
     register,
     handleSubmit,
@@ -64,7 +65,19 @@ function Form({ eventId, eventCompleted, setToast }) {
                 className={`form-input ${
                   eventCompleted ? "cursor-not-allowed" : ""
                 } bg-[#c4c4c454]`}
+                onChange={(e) => {
+                  if (!/^[a-zA-Z]+$/.test(e.target.value) && e.target.value) {
+                    setValidFirstName(false);
+                  } else {
+                    setValidFirstName(true);
+                  }
+                }}
               />
+              {!validFirstName && (
+                <span className="text-red-500 text-sm">
+                  Only letters are allowed
+                </span>
+              )}
               {errors.firstName?.type === "required" && (
                 <span className='text-red-500 text-sm'>
                   First name is required
@@ -79,7 +92,20 @@ function Form({ eventId, eventCompleted, setToast }) {
                 className={`form-input ${
                   eventCompleted ? " cursor-not-allowed" : ""
                 } bg-[#c4c4c454]`}
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  if (!/^[a-zA-Z]+$/.test(e.target.value) && e.target.value) {
+                    setValidLastName(false);
+                  } else {
+                    setValidLastName(true);
+                  }
+                }}
               />
+              {!validLastName && (
+                <span className="text-red-500 text-sm">
+                  Only letters are allowed
+                </span>
+              )}
               {errors.lastName?.type === "required" && (
                 <span className='text-red-500 text-sm'>
                   Last Name is required
@@ -126,9 +152,13 @@ function Form({ eventId, eventCompleted, setToast }) {
               )}
               <button
                 type='submit'
-                disabled={eventCompleted ? true : false}
+                disabled={
+                  ( !validFirstName || eventCompleted || !validLastName)
+                    ? true
+                    : false
+                }
                 className={`flex justify-center items-center text-white  p-4 w-full ${
-                  eventCompleted
+                  ( !validFirstName || eventCompleted || !validLastName )
                     ? "bg-[#05b85073] cursor-not-allowed"
                     : "bg-primary"
                 }`}
