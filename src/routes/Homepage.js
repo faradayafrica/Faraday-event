@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 import PastEvent from "../components/Homepage/PastEvent";
 
-function Homepage({ events }) {
+function Homepage({ events, loading }) {
   const upComingEvents =
     events &&
     events.filter((event) => event?.fields?.event_completed === undefined);
@@ -16,7 +16,7 @@ function Homepage({ events }) {
     <div className="">
       <Navigation />
       <Banner />
-      {upComingEvents && <EventList events={upComingEvents} />}
+      {upComingEvents && <EventList events={upComingEvents} loading={loading} />}
       {pastEvents.length > 0 && <PastEvent events={pastEvents} />}
       <Footer />
     </div>

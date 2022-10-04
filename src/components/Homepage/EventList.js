@@ -3,16 +3,35 @@ import { Link } from "react-router-dom";
 import Button from "../Button";
 import SkeletonLoader from "../SkeletonLoader";
 
-function EventList({ events }) {
+function EventList({ events, loading }) {
+  console.log(events)
   return (
     <section className="my-12" id="events">
       <h2 className="container text-xl md:text-2xl font-bold">
         Upcoming Events
       </h2>
       <div className="space-y-4 mt-4">
-        {events.length === 0 ? (
-          <SkeletonLoader upComingEvent />
-        ) : (
+        {events.length === 0 ? 
+
+        <div>
+          {loading ? <SkeletonLoader upComingEvent />: <div className="container gap-12 bg-[#3F3F41] shadow-2xl rounded-lg mx-auto text-center py-12 mt-4">
+            <h2 className="text-3xl leading-9 font-bold tracking-tight text-white sm:text-4xl sm:leading-10">
+              No upcoming events.
+            </h2>
+          </div>}
+        </div>
+        
+        // (
+          
+        //   loading && <SkeletonLoader upComingEvent />
+        //   // <div className="container gap-12 bg-[#3F3F41] shadow-2xl rounded-lg mx-auto text-center py-12 mt-4">
+        //   //   <h2 className="text-3xl leading-9 font-bold tracking-tight text-white sm:text-4xl sm:leading-10">
+        //   //     No upcoming events.
+        //   //   </h2>
+        //   // </div>
+        // ) 
+        
+        : (
           events?.map((event, i) => (
             <article key={i} className="odd:bg-[#F1F2F6] py-8">
               <div className="container md:flex gap-12">
