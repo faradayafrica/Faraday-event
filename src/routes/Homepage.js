@@ -8,9 +8,9 @@ import PastEvent from "../components/Homepage/PastEvent";
 function Homepage({ events, loading }) {
   const upComingEvents =
     events &&
-    events.filter((event) => event?.fields?.event_completed === true);
+    events.filter((event) => event?.fields?.event_completed === undefined);
   const pastEvents =
-    events && events.filter((event) => event?.fields?.event_completed === undefined);
+    events && events.filter((event) => event?.fields?.event_completed === true);
 
   return (
     <div className="">
