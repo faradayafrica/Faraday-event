@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="bg-[#3F3F41] py-14 md:bg-footerBg md:pb-32 md:[background-position:_center_255px]">
+    <div className="bg-[#3F3F41] py-14 md:bg-footerBg md:pb-32  bg-cover bg-[center_10px]">
       <div className="container  text-white">
         <img src={Logo} alt="faraday logo" className="mb-8" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
