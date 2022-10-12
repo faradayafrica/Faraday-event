@@ -14,7 +14,6 @@ import Back from "../images/back-arrow.svg";
 import Toast from "../components/Toast";
 import MetaTags from "react-meta-tags";
 
-
 function Event() {
   const [searchParams] = useSearchParams();
   const eventIdQuery = searchParams.get("_e");
@@ -57,10 +56,7 @@ function Event() {
       <Navigation event />
       <MetaTags>
         <title>{eventTitle}</title>
-        <meta
-          name="description"
-          content="Event page for particular events."
-        />
+        <meta name="description" content={event?.fields?.description} />
         <meta property="og:title" content={eventTitle} />
         <meta property="og:image" content={bannerImage} />
         <meta name="DC.identifier" content="https://events.faraday.africa/" />
