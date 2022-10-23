@@ -12,6 +12,7 @@ import Navigation from "../components/Navigation";
 import { base } from "../util";
 import Back from "../images/back-arrow.svg";
 import Toast from "../components/Toast";
+import MetaTags from "react-meta-tags";
 
 function Event() {
   const [searchParams] = useSearchParams();
@@ -53,7 +54,13 @@ function Event() {
     <div className="relative">
       <Sidebar />
       <Navigation event />
-
+      <MetaTags>
+        <title>{eventTitle}</title>
+        <meta name="description" content={event?.fields?.description} />
+        <meta property="og:title" content={eventTitle} />
+        <meta property="og:image" content={bannerImage} />
+        <meta name="DC.identifier" content="https://events.faraday.africa/" />
+      </MetaTags>
       <div className="relative md:ml-[48px]">
         {toast && (
           <Toast
