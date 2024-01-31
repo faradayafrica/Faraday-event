@@ -41,6 +41,8 @@ function Event() {
   const eventTime = event?.fields?.time;
   const eventCompleted = event?.fields?.event_completed === true;
   const eventSchedules = event?.fields?.event_schedule;
+  const registrationClosed = event?.fields?.registration_closed === true;
+  const registrationLink = event?.fields?.registration_link;
 
   function determineMessage(toast) {
     if (toast === "success") {
@@ -101,6 +103,8 @@ function Event() {
             <Form
               eventId={eventId}
               eventCompleted={eventCompleted}
+              registrationClosed={registrationClosed}
+              registrationLink={registrationLink}
               setToast={setToast}
             />
           </div>
