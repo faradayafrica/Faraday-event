@@ -68,3 +68,37 @@ form input:focus {
     bottom: 3rem;
   }
 }
+
+.lnk {
+  box-shadow: 2px 2px 5px 1px black;
+  transition: all 0.3s ease-in-out 0s;
+  border-radius: 12px;
+  width: 100%;
+}
+
+.lnk::after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 6px solid #05B851;
+  position: absolute;
+  z-index: -1;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+  }
+}
