@@ -20,7 +20,7 @@ const LinkToForm = ({ link }) => {
           href={link}
           target="_blank"
           rel="noreferrer"
-          className="lnk p-5 bg-primary text-center font-semibold w-full"
+          className="p-5 bg-primary text-center font-semibold w-full"
         >
           Register
         </a>

@@ -68,35 +68,3 @@ form input:focus {
     bottom: 3rem;
   }
 }
-
-.lnk {
-  transition: all 0.3s ease-in-out 0s;
-  width: 100%;
-}
-
-.lnk::after {
-  content: "";
-  width: 312px;
-  height: 64px;
-  border-radius: 100%;
-  border: 6px solid #05B851;
-  position: absolute;
-  z-index: -1;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: ring 1.5s infinite;
-}
-
-@keyframes ring {
-  0% {
-    width: 312px;
-    height: 64px;
-    opacity: 1;
-  }
-  100% {
-    width: 318px;
-    height: 70px;
-    opacity: 0;
-  }
-}
