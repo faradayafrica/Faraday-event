@@ -76,8 +76,8 @@ form input:focus {
 
 .lnk::after {
   content: "";
-  width: 30px;
-  height: 30px;
+  width: 312px;
+  height: 64px;
   border-radius: 100%;
   border: 6px solid #05B851;
   position: absolute;
@@ -90,13 +90,13 @@ form input:focus {
 
 @keyframes ring {
   0% {
-    width: 30px;
-    height: 30px;
+    width: 312px;
+    height: 64px;
     opacity: 1;
   }
   100% {
-    width: 100px;
-    height: 100px;
+    width: 318px;
+    height: 70px;
     opacity: 0;
   }
 }
