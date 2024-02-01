@@ -58,7 +58,7 @@ function Description({ event, eventCompleted }) {
       {!eventCompleted && (
         <a
           href="#register"
-          className="block text-white text-center bg-primary p-4 w-full md:hidden"
+          className="block text-white text-center rounded-2xl font-semibold bg-primary p-4 w-full md:hidden"
         >
           Register
         </a>
