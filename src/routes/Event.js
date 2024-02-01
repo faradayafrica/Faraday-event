@@ -12,7 +12,6 @@ import Navigation from "../components/Navigation";
 import { base } from "../util";
 import Back from "../images/back-arrow.svg";
 import Toast from "../components/Toast";
-import MetaTags from "react-meta-tags";
 
 function Event() {
   const [searchParams] = useSearchParams();
@@ -41,6 +40,8 @@ function Event() {
   const eventTime = event?.fields?.time;
   const eventCompleted = event?.fields?.event_completed === true;
   const eventSchedules = event?.fields?.event_schedule;
+  const registrationClosed = event?.fields?.registration_closed === true;
+  const registrationLink = event?.fields?.registration_link;
 
   function determineMessage(toast) {
     if (toast === "success") {
@@ -54,13 +55,6 @@ function Event() {
     <div className="relative">
       <Sidebar />
       <Navigation event />
-      <MetaTags>
-        <title>{eventTitle}</title>
-        <meta name="description" content={event?.fields?.description} />
-        <meta property="og:title" content={eventTitle} />
-        <meta property="og:image" content={bannerImage} />
-        <meta name="DC.identifier" content="https://events.faraday.africa/" />
-      </MetaTags>
       <div className="relative md:ml-[48px]">
         {toast && (
           <Toast
@@ -101,6 +95,8 @@ function Event() {
             <Form
               eventId={eventId}
               eventCompleted={eventCompleted}
+              registrationClosed={registrationClosed}
+              registrationLink={registrationLink}
               setToast={setToast}
             />
           </div>
