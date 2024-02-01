@@ -70,9 +70,7 @@ form input:focus {
 }
 
 .lnk {
-  box-shadow: 2px 2px 5px 1px black;
   transition: all 0.3s ease-in-out 0s;
-  border-radius: 12px;
   width: 100%;
 }
 
